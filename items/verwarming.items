@@ -1,0 +1,4 @@
+Group	gAll
+Group	BG_Woonkamer	"Woonkamer"		<video>		(gBG)
+
+Number WK_Temp	"Woonkamer Temp [%.2f C]"	<temperatuur>   (gAll) { mqtt="<[mosquitto:/home/woonkamer/temp:state:default]" }

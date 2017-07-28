@@ -1,0 +1,40 @@
+// ***** weather.items
+// ************ Volgens: http://docs.openhab.org/addons/bindings/weather1/readme.html#units ********
+//
+// temperature
+Number 	Weather_Temperature	"Buiten Temperatuur [%.1f °C]"	<temperature> (Weather, Weather_Chart) 	{weather="locationId=Thuis, type=temperature, property=current"}
+Number 	Weather_Temp_Max	"Vandaag Maximum [%.1f °C]"	<temperature> (Weather, Weather_Chart) 	{weather="locationId=Thuis, type=temperature, property=max"}
+Number 	Weather_Temp_Min	"Vandaag Minimum [%.1f °C]"	<temperature> (Weather, Weather_Chart) 	{weather="locationId=Thuis, type=temperature, property=min"}
+String  Temperatur_MinMax   	"Temperatuur min/max [%s °C]"   <temperature> (Weather, Weather_Chart)	{weather="locationId=Thuis, forecast=0, type=temperature, property=minMax"}
+
+// atmosphere
+Number 	Weather_Humidity	"Luchtvochtigheid [%d %%]"	<temperature> (Weather, Weather_Chart) 	{weather="locationId=Thuis, type=atmosphere, property=humidity"}
+Number 	Weather_Visibility	"Zichtbaarheid [%.1f km]"	<temperature> (Weather, Weather_Chart) 	{weather="locationId=Thuis, type=atmosphere, property=visibility"}
+Number  Weather_Pressure    	"Luchtdruk in mb [%.2f mb]"    						{weather="locationId=Thuis, type=atmosphere, property=pressure"}
+Number  Weather_UV_Index        "UV Index"              						{weather="locationId=Thuis, type=atmosphere, property=uvIndex, scale=0"}
+ 
+// clouds
+Number   Weather_Clouds   	"Bewolking % [%.0f %%]"   						{weather="locationId=Thuis, type=clouds, property=percent"}
+
+// condition
+String   Weather_Condition        "Condition [%s]"      {weather="locationId=Thuis, type=condition, property=text"}
+String   Weather_Condition_ID     "Condition id [%s]"   {weather="locationId=Thuis, type=condition, property=id"}
+DateTime Weather_ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"   {weather="locationId=Thuis, type=condition, property=observationTime"}
+DateTime Weather_LastUpdate       "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"        {weather="locationId=Thuis, type=condition, property=lastUpdate"}
+String   Weather_CommonId         "Common id [%s]"      {weather="locationId=Thuis, type=condition, property=commonId"}
+
+
+// precipitation
+Number   Weather_Rain          	"Rain [%.2f mm/h]"   {weather="locationId=Thuis, type=precipitation, property=rain"}
+Number   Weather_Snow          	"Snow [%.2f mm/h]"   {weather="locationId=Thuis, type=precipitation, property=snow"}
+Number   Weather_Precip_Probability   "Precip probability [%d %%]"   {weather="locationId=Thuis, type=precipitation, property=probability"}
+
+// wind
+Number   Weather_Wind_Speed           "Windspeed [%.2f km/h]"    {weather="locationId=Thuis, type=wind, property=speed"}
+Number   Weather_Wind_Speed_Beaufort  "Windspeed Beaufort [%d]"  {weather="locationId=Thuis, type=wind, property=speed, unit=beaufort"}
+Number   Weather_Wind_Gust_Beaufort   "Wind gust Beaufort [%d]"  {weather="locationId=Thuis, type=wind, property=gust, unit=beaufort"}
+
+// Weather station
+String   Weather_Station_Name         "Station Name [%s]"        {weather="locationId=Thuis, type=station, property=name"}
+//
+// ********** end of file ***************

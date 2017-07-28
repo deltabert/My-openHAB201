@@ -1,0 +1,29 @@
+// Work with a list of selected Sonoff modules
+val sonoff_device_ids = newArrayList(
+    "Sonoff_1",
+    "Sonoff_2"
+    //... add all your other modules here!
+)
+// OR
+// Work with the grouptopic, addressing ALL modules at once
+// val sonoff_device_ids = newArrayList("sonoffs")
+
+rule "Sonoff Maintenance"
+when
+    Item Sonoff_Action received command
+then 
+    logInfo("sonoff.rules", "Sonoff Maintenance on all devices: " + receivedCommand)
+    for (String device_id : sonoff_device_ids) {
+        switch (receivedCommand) {
+            case "restart" :
+                publish("mosquitto", "cmnd/" + device_id + "/restart", "1") 
+            case "queryFW" :
+                publish("mosquitto", "cmnd/" + device_id + "/status", "2")
+            case "upgrade" : {
+                publish("mosquitto", "cmnd/" + device_id + "/otaurl", "http://sonoff.maddox.co.uk/tasmota/sonoff.ino.bin")
+                publish("mosquitto", "cmnd/" + device_id + "/upgrade", "1")
+            }
+        }
+    }
+    Sonoff_Action.postUpdate(NULL)
+end

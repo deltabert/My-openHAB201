@@ -1,0 +1,54 @@
+Group	All
+Group	gBG			"Begane Grond"		<groundfloor>	(All)	
+Group	gEE			"Eerste Etage"		<firstfloor>	(All)
+Group	gZO			"Zolder"		<house>		(All)	
+Group	gBU			"Buiten verlichting"	<outdoorlight>	(All)	
+//
+Group	gScreens		(All)
+Group	gTijd		(ALL)	
+Group	gWeer		(All)	
+Group	gStatus		(All)	
+Group	gPower		(ALL)
+Group	gInternet		(ALL)
+Group	gIPCameras	(ALL)
+//
+Group   	gMyOpenHAB
+//
+Group	BG_Woonkamer	"Woonkamer"		<video>		(gBG)	
+Group	BG_Keuken		"Keuken"			<kitchen>		(gBG)	
+Group	BG_Serre		"Serre"			<serre>		(gBG)	
+Group	BG_Meterkast	"Meterkast"		<cistern>		(gBG)		
+Group	BG_Toilet		"Toilet"			<bath>		(gGF)	
+Group	BG_Hal		"Hal"			<hal>		(gGF)
+Group	BG_Berging	"Berging/garage"	<garage>		(gGF)
+Group	EE_Badkamer	"Badkamer"		<bad>		(gFF)	
+Group	EE_Werk2		"B werkkamer"		<office>		(gFF)	
+Group	EE_Werk1		"A-M werkkamer"	<werk1>		(gFF)	
+Group	EE_Slaap		"Slaapkamer"		<slaapkamer>	(gFF)
+Group	EE_Was		"Wasruimte"		<wasruimte>	(gFF)
+Group	EE_Overloop	"Overloop"		<overloop>	(gFF)	
+Group	TE_Overloop	"Overloop zolder" 	<overloop2>	(gTE)
+Group	TE_Zolder_V	"Zolder voor"		<zolder-v>	(gTE)
+Group	TE_Zolder_A	"Zolder achter"	<zolder-a>	(gTE)
+Group	BU_Vijver		"Vijver"			<tuin>		(gBU)
+Group	BU_Schuur		"Schuur"			<tuin> 		(gBU)
+Group	BU_Verlichting "Verlichting"		<tuin>		(gBU)
+Group	BU_IPCam		"IPCameras"		<tuin>		(gBU)
+// **************************************
+//
+String Iphone "Bert Tammer @ Home? [%s]"
+//
+// ***************************************
+//
+// Group gMobiles
+// Switch Presence
+// Switch Presence_iPhone_Bert 	"Bert's iPhone" 	<network> (gMobiles)	{ channel="network:device:192_168_178_40:online" }
+// Switch Presence_LG_OB_Bert 	"Bert's LG_OB" 		<network> (gMobiles)	{ channel="network:device:192_168_178_27:online" }
+// Switch Presence_iPhone_AnneMarie "Anne-Marie's iPhone" 	<network> (gMobiles)	{ channel="network:device:192_168_178_35:online" }
+//
+//
+// ***************************************
+// MQTT test met temperatuur. zie aparte verwarming.items
+//
+// Number WK_Temp	"Woonkamer Temp [%.2f C]"	<temperatuur>   (gAll) { mqtt="<[mosquitto:home/woonkamer/temp:state:default]" }
+//

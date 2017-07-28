@@ -1,0 +1,34 @@
+// ************************************
+// Uit: https://community.openhab.org/t/astro-items-sitemap-binding-example/21155
+Group Astro <sun_clouds> (gAll)
+DateTime Date 		"Datum/Tijd 	[ %1$tA, %1$td/%1$tm/%1$tY %1$tH:%1$tM ]" <calendar> { channel="ntp:ntp:local:dateTime" }
+//
+// De Astro binding staat default ingesteld op 'local' maar de eerste keer had ik deze op 'home' ingesteld! 
+// Bij nieuwe installatie hierop letten en eventueel dit aanpassen!!!
+//
+DateTime  CurrDateTime      	"Vandaag [%1$tA, %1$td.%1$tm.%1$tY]"	<clock>	(Astro) { channel="ntp:ntp:local:dateTime" }
+DateTime 	SunriseTime       	"Sunrise [%1$tH:%1$tM]"				<sun>  	(Astro) { channel="astro:sun:local:rise#start" }
+DateTime 	SunsetTime        	"Sunset  [%1$tH:%1$tM]"				<sun>   	(Astro) { channel="astro:sun:local:set#start" }
+String    SeasonName        	"Jaargetijde [MAP(season.map):%s]"      <sun>	(Astro) { channel="astro:sun:local:season#name" }
+DateTime  NightStartTime      "Begin Nacht [%1$tH:%1$tM Uhr]"    	<moon>	(Astro) { channel="astro:sun:local:night#start" }
+DateTime  NightEndTime        "Einde Nacht [%1$tH:%1$tM Uhr]"    	<moon>	(Astro) { channel="astro:sun:local:night#end" }
+Number   	Total_Radiation    	"Radiation" 						<sun>	(Astro) { channel="astro:sun:local:radiation#total" }
+Number    SunElevation      	"Zon elevatie (hoogte)"        		<sun>   	(Astro) { channel="astro:sun:local:position#elevation" }
+//    was: Number    	SunElevation      	"Zon elevatie (hoogte) [%.1f °]"        <sun>   (Astro) { channel="astro:sun:home:position#elevation" }
+//
+Number 	SunAzimuth		"Sun Azimuth"						<sun>	(Astro) { channel="astro:sun:local:position#azimuth" }
+Number    MoonElevation     	"Maan elevatie (hoogte)"  			<moon>  	(Astro) { channel="astro:moon:local:position#elevation" }
+Number  	MoonAzimuth		"Moon Azimuth"						<moon>	(Astro) { channel="astro:moon:local:position#azimuth" }
+String   	Season     		"Seizoen"           				<sun>	(Astro) { channel="astro:sun:local:season#name" }
+//
+//
+Switch    NightState        	"Nacht"                                         (Astro)
+//
+String    Zodiac            	"Sterrenbeeld [MAP(zodiac.map):%s]"     <sun>     (Astro) { channel="astro:sun:local:zodiac#sign" }
+String    MoonPhase         	"Maanfase [MAP(maan.map):%s]"           <moon>    (Astro) { channel="astro:moon:local:phase#name" }
+DateTime  MoonFull          	"Eerste volle maan [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" 	<moon> 	(Astro) { channel="astro:moon:local:phase#full" }
+DateTime  MoonNew           	"Eerste nieuwe maan [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" 	<moon>  (Astro) { channel="astro:moon:local:phase#new" }
+//
+//
+//
+//

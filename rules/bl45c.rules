@@ -1,0 +1,18 @@
+// Switch EE_3_WCD_1 ON/OFF
+rule "Switch light on"
+when
+	Time cron "0 52 20 * * ?"
+then
+    sendCommand(EE_3_SW_WCD_1, ON)
+end
+
+rule "Switch light off"
+when
+    Time cron "0 15 21 * * ?"
+then
+    sendCommand(EE_3_SW_WCD_1, OFF)
+end
+// Bovenstaande twee commanda's werken !
+
+//
+

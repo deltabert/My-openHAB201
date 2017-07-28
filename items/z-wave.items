@@ -1,0 +1,8 @@
+//   Z-Wave items voot sitemap bl45
+//
+// *************    Device: Aeon Gen5 USB Stick
+Switch	EE_3_SW_WCD_1 				"WCD aan/uit [%s]" 				(EE_Werk2, gPower, gMyOpenHAB) 	{ channel="zwave:device:7dc0f13d:node2:switch_binary" }
+Number	EE_3_SW_WCD_1_power 		"WCD Sensor [%.1f W]"			(EE_Werk2, gPower)				{ channel="zwave:device:7dc0f13d:node2:sensor_power" }
+Number	EE_3_SW_WCD_1_meter_kwh 		"WCD Electric meter [%.2f KWh]"	(EE_Werk2, gPower)				{ channel="zwave:device:7dc0f13d:node2:meter_kwh" }
+Number	EE_3_SW_WCD_1_meter_watts 	"WCD Electric meter [%.2f KWh]"	(EE_Werk2, gPower) 				{ channel="zwave:device:7dc0f13d:node2:meter_watts" }
+//

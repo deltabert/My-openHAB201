@@ -1,0 +1,26 @@
+// Switch Sonoff_5 ON/OFF
+rule "Switch Sonoff_5 WCD on"
+when
+	Time cron "0 08 22 ? 1-12 MON,WED,FRI"
+	or 
+	Time cron "0 43 21 ? 1-12 TUE,THU"
+	or
+	Time cron "0 55 21 ? 1-12 SAT"
+	or
+	Time cron "0 35 21 ? 1-12 SUN"
+then
+  sendCommand(Sonoff_5,ON)
+end
+rule "Switch Sonoff_5 WCD off"
+when
+	Time cron "0 12 22 ? 1-12 MON,WED,FRI"
+	or 
+	Time cron "0 20 22 ? 1-12 TUE,THU"
+	or
+	Time cron "0 15 22 ? 1-12 SAT"
+	or
+	Time cron "0 55 21 ? 1-12 SUN"
+then
+  sendCommand(Sonoff_5,OFF)
+end
+//

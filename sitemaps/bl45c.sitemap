@@ -1,0 +1,162 @@
+sitemap bl45c label="Bl45 - Hoofd Menu"
+{
+	Frame label="Info"  {
+		Text label="openHAB @ Bikolaan 45" icon="house" 		
+	}	
+	Frame label="Datum/Tijd"  {
+		Text item=Date label="Datum/Tijd" icon="clock"  {
+		Text item=Date label="Huidige dag/datum/tijd" icon="clock"
+// Date was: CurrentTime		
+//		Text item=DatumTijd icon="clock"
+//		Text item=CurrentTime2 label="Huidige tijd" icon="clock"
+		}
+	
+	}
+	Frame label="Woning"  {
+		Group item=gBG label="Begane Grond" 	icon="groundfloor"  {
+			Group item=BG_Hal 						label="Hal" 		icon="wardrobe"
+			Group item=BG_Toilet 					label="Toilet"		icon="toilet"
+			Group item=BG_Woonkamer 					label="Woonkamer" {
+				Text item=WK_Temp
+				Switch item=Sonoff_3 				label="Sonoff 3 aan/uit"    		icon="light"
+				Text item=Sonoff_3Uptime				label="Sonoff 3 Uptime"			icon="clock"
+				Switch item=Sonoff_4 				label="Sonoff 4 aan/uit"   		icon="light"
+				Text item=Sonoff_4Uptime				label="Sonoff 4 Uptime"			icon="clock"
+				Switch item=Sonoff_5 				label="Staande lamp (S5) aan/uit"   icon="light"
+				Text item=Sonoff_5Uptime				label="Sonoff 5 Uptime"			icon="clock"
+			}
+			Group item=BG_Keuken 					label="Keuken" 				icon="kitchen" {
+				Switch item=Sonoff_2 				label="Spotjes keuken aan/uit"    	icon="light"
+				Text item=Sonoff_2Uptime				label="Sonoff 2 Uptime"			icon="clock"
+					
+			}
+			Group item=BG_Serre 					label="Serre" 					icon="groundfloor" 			
+			Group item=BG_Meterkast 					label="Meterkast" 				icon="cistern"
+		}
+		Group item=gEE label="Eerste Etage" icon="firstfloor"  {
+			Group item=EE_Overloop 					label="Overloop" 				icon="corridor"
+			Group item=EE_Badkamer 					label="Badkamer" 				icon="bath"
+			Group item=EE_Slaap 					label="Slaapkamer 1" 			icon="bedroom"
+			Group item=EE_Werk1 					label="Anne-Maries werkkamer" 	icon="office"
+			Group item=EE_Was 						label="Wasruimte" 				icon="washingmachine"
+			Group item=EE_Werk2 label="Berts werkkamer" icon="office"  {	
+				Switch item=EE_3_SW_WCD_1 			label="WCD aan/uit"   icon="light"	
+				Text item=EE_3_SW_WCD_1_power 		label="Stroomverbruik in Watt [%.1f W]"   icon="energy"
+				Text item=EE_3_SW_WCD_1_meter_kwh 		label="Totaal energieverbruik in KWh [%.1f kW/h]"   icon="energy"
+				Text item=EE_3_SW_WCD_1_meter_watts 	label="Aktueel verbruik [%.1f W]"  icon="energy"
+				// Sonoff devices met ESPEasy fw. ----------------------------------------------------------
+				Switch item=Sonoff_1 				label="Sonoff 1 aan/uit"    		icon="light"
+				Text item=Sonoff_1Uptime				label="Sonoff 1 Uptime"			icon="clock"
+				
+				
+				Switch item=Sonoff_6 				label="Sonoff 6 aan/uit"    		icon="light"
+				Text item=Sonoff_6Uptime				label="Sonoff 6 Uptime"			icon="clock"
+			}
+		}		
+		Group item=gZO label="Zolder" icon="attic" {	
+			Group item=TE_Overloop 					label="Overloop zolder" 			icon="corridor"
+			Group item=TE_Zolder_V					label="Zolder voor" 			icon="attic"
+			Group item=TE_Zolder_A					label="Zolder achter" 			icon="attic"
+			}
+		Group item=gBU label="Buiten" icon="outdoorlight" {
+			Group item=BU_Vijver 					label="Vijverpomp"				icon="water"
+			Group item=BU_Schuur					label="Schuurlamp"				icon="light"
+			Group item=BU_Verlichting				label="Buitenlampen"			icon="outdoorlight"
+			Group item=BU_IPCam						label="IP cameras"				icon="camera"
+			}
+	}
+//
+// *****************************     Het weer met wunderground      *************************
+// ************ Volgens: http://docs.openhab.org/addons/bindings/weather1/readme.html#units ********
+	Frame label="Het weer"{
+		Group item=gWeer 	label="Het weer vandaag" icon="sun_clouds" {
+			Text item=Weather_Temperature 
+			Text item=Weather_LastUpdate label="Laatste update"  visibility=[Weather_LastUpdate>30] valuecolor=[Weather_LastUpdate>120="orange", Weather_LastUpdate>300="red"]
+			// Text item=Weather_Temp_Max 
+			// Text item=Weather_Temp_Min
+			Text item=Temperatur_MinMax
+			Text item=Weather_Humidity  	icon="sun_clouds"
+			Text item=Weather_Pressure    	label="Luchtdruk"
+			Text item=Weather_Visibility
+			Text item=Weather_UV_Index
+			Text item=Weather_Clouds 	icon="sun_clouds"
+			Text item=Weather_Condition
+			Text item=Weather_Condition_ID
+//			Text item=Weather_ObservationTime
+//			Text item=Weather_CommonID
+			Text item=Weather_Wind_Speed_Beaufort
+			Text item=Weather_Wind_Speed
+			Text item=Weather_Station_Name
+				Text item=Weather_Rain
+				Text item=Weather_Snow
+				Text item=Weather_Precip_Probability
+		}
+	}
+
+	Frame label="Astro" {
+		Group item=gTijd 				label="Zon en maan" icon="groundfloor"  {
+			Switch item=NightState 		label="Dag of nacht?" mappings=[OFF="Dag", ON="Nacht"]
+                	Text item=SunriseTime 	icon="sunrise" 	visibility=[NightState == ON]
+                	Text item=SunsetTime 	icon="sunset" 	visibility=[NightState == OFF]
+			Text item=SeasonName		label="Seizoen"
+			Text item=SunriseTime 		label="Tijdstip: Zon op"
+			Text item=SunsetTime 		label="Tijdstip: Zon onder"
+			//Text item=DayLight 		label="Daglicht"
+			Text item=SunAzimuth 		label="Zon kompasrichting (Azimuth)"
+			Text item=SunElevation 		label="Zon boven horizon (Elevatie)"	
+			Text item=MoonAzimuth 		label="Maan kompasrichting (Azimuth)"
+			Text item=MoonElevation 		label="Maan boven horizon (Elevatie)"
+        	    	Text item=MoonPhase 		label="Maan fase" icon="moon"
+			Text item=MoonNew 	
+			Text item=MoonFull
+//
+//			Text item=MoonFull 			label="Tijstip volle maan"   icon="fullmoon"
+//         	            	visibility=[MoonPhase == WAXING_CRESCENT,
+//              	                    MoonPhase == FIRST_QUARTER,
+//              	                    MoonPhase == WAXING_GIBBOUS,
+//              	                    MoonPhase == FULL]
+//            	  	  	Text item=MoonNew icon="fullmoon"
+//             	        	visibility=[MoonPhase == WANING_GIBBOUS,
+//                                    MoonPhase == THIRD_QUARTER,
+//                                    MoonPhase == WANING_CRESCENT,
+//                                    MoonPhase == NEW]
+//
+			Text item=Zodiac icon="zodiac"
+        	}
+	}
+//
+// **************************************
+//	Frame label="Aanwezigheid" {
+//		Text item=Iphone				label="Bert's Mobile"
+//		Switch item=Iphone				label="Bert's Mobile"
+//		Switch item=Presence_iPhone_Bert 	label="Bert's Mobile"
+//		Text item=Presence_iPhone_Bert 	label="Bert's Mobile"
+//		Switch item=Presence_LG_OB_Bert 	label="Bert's Android phone"
+//		Switch item=Presence_iPhone_AnneMarie 	label="Anne-Marie's Mobile"
+//
+// **************************************
+//
+	Frame label="Alarms and Timers" {
+
+        	Text label="Alarm [%s]" item=alarmTimeMessage icon="clock" {
+            	Frame label="Time" {
+				Switch  item=alarmEnabled
+               	Switch  item=radioEnabled
+               	Setpoint item=alarmTimeHour minValue=0 maxValue=23 step=1
+                	Setpoint item=alarmTimeMinutes minValue=0 maxValue=55 step=5
+                	Setpoint item=alarmOffset1Minutes minValue=0 maxValue=55 step=5
+                	Setpoint item=alarmOffset2Minutes minValue=0 maxValue=55 step=5
+                	Setpoint item=alarmOffset3Minutes minValue=0 maxValue=55 step=5             
+            	}
+            	Frame label="Weekdays" {
+                	Switch item=alarmMonday
+                	Switch item=alarmTuesday
+                	Switch item=alarmWensday
+                	Switch item=alarmThursday
+                	Switch item=alarmFriday
+                	Switch item=alarmSaturday
+                	Switch item=alarmSunday
+            	}
+        }
+    }
+}

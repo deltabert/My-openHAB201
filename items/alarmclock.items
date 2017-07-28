@@ -1,0 +1,26 @@
+// ***************************************
+// ****     		Alarm Clock - Example III
+//
+Group gAlarmWeekdays
+Group gAlarmTime
+
+Switch  alarmEnabled    "Enabled"   <switch>    (gAlarmTime)
+Switch  radioEnabled    "Radio"     <switch>    (gAlarmTime)
+
+Switch  alarmMonday     "Monday"    <switch>    (gAlarmWeekdays) 
+Switch  alarmTuesday    "Tuesday"   <switch>    (gAlarmWeekdays)
+Switch  alarmWensday    "Wensday"   <switch>    (gAlarmWeekdays)
+Switch  alarmThursday   "Thursday"  <switch>    (gAlarmWeekdays)
+Switch  alarmFriday     "Friday"    <switch>    (gAlarmWeekdays)
+Switch  alarmSaturday   "Saturday"  <switch>    (gAlarmWeekdays)
+Switch  alarmSunday     "Sunday "   <switch>    (gAlarmWeekdays)
+
+String alarmTimeMessage "%s"
+
+Number alarmTimeHour        "Hours [%d]"        <clock> (gAlarmTime)
+Number alarmTimeMinutes     "Minutes [%d]"      <clock> (gAlarmTime)
+Number alarmOffset1Minutes  "Offset 1 Minutes [%d]" <clock> (gAlarmTime)
+Number alarmOffset2Minutes  "Offset 2 Minutes [%d]" <clock> (gAlarmTime)
+Number alarmOffset3Minutes  "Offset 3 Minutes [%d]" <clock> (gAlarmTime)
+//
+//

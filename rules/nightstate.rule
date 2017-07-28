@@ -1,0 +1,11 @@
+// rule voor item NightState (astro)
+rule "Update NightState"
+when
+    Item SunElevation changed
+then
+    if(SunElevation.state >  0){
+        if(NightState.state != OFF) postUpdate(NightState, OFF)
+    } else {
+        if(NightState.state != ON) postUpdate(NightState, ON)
+    }
+end

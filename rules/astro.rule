@@ -1,0 +1,7 @@
+rule "Switch WCD ON"
+when
+    Channel 'astro:sun:home:set#event' triggered START
+then
+     logInfo("FILE","Sunset event has been triggered")        
+     sendCommand(EE_3_SW_WCD_1, ON)
+end

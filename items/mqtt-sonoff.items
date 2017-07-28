@@ -1,0 +1,40 @@
+//  MQTT - Sonoff items voor sitemap bl45
+// **************** Test met mqtt ********* [OH2] Control ESP8266 Relay using MQTT Eventbus *********
+//
+//Switch	Sonoff-1	"Sonoff Switch 1"	<light>	(EE_Werk2)	{ mqtt=">[mosquitto:Sonoff-1/lightSwitch/gpio/12:command:ON:1],>[mosquitto:Sonoff-1/lightSwitch/gpio/12:command:OFF:0],<[mosquitto:Sonoff-1/lightState/Switch:command:ON:1],<[mosquitto:Sonoff-1/lightState/Switch:command:OFF:0]" }
+//Switch   Sonoff_1    	"Sonoff Switch 1 [%s]" 	<light>	(EE_Werk2)	{ mqtt=">[mosquitto:Sonoff_1/lightSwitch/gpio/12:command:ON:1],>[mosquitto:Sonoff_1/gpio/12:command:OFF:0]<[mosquitto:Sonoff-1/lightState/Switch:command:ON:1],<[mosquitto:Sonoff-1/lightState/Switch:command:OFF:0]"}
+//
+Switch   Sonoff_1    	"Sonoff Switch 1 [%s]" 	<light>	(EE_Werk2)	{ mqtt=">[mosquitto:Sonoff_1/lightSwitch/gpio/12:command:ON:1],>[mosquitto:Sonoff_1/gpio/12:command:OFF:0]"}
+String   Sonoff_1Uptime 	"Sonoff 1 Uptime [%s]"	<light>	(EE_Werk2)	{ mqtt="<[mosquitto:Sonoff_1/Uptime/Minutes:state:default]"}
+String   Sonoff_1Wifi	"Sonoff WiFi Status"	<light>	(EE_Werk2)	{ mqtt="[mosquitto:Sonoff_1/Wifi/]" }
+//
+Switch   Sonoff_2    	"Sonoff Switch 2 [%s]" 	<light>	(EE_Werk2)	{ mqtt=">[mosquitto:Sonoff_2/lightSwitch/gpio/12:command:ON:1],>[mosquitto:Sonoff_2/gpio/12:command:OFF:0]"}
+String   Sonoff_2Uptime 	"Sonoff 2 Uptime [%s]"	<light>	(EE_Werk2)	{ mqtt="<[mosquitto:Sonoff_2/Uptime/Minutes:state:default]"}
+String   Sonoff_2Wifi	"Sonoff 2 WiFi Status"	<light>	(EE_Werk2)	{ mqtt="[mosquitto:Sonoff_2/Wifi/]" }
+//
+Switch   Sonoff_3    	"Sonoff Switch 3 [%s]" 	<light>	(EE_Werk2)	{ mqtt=">[mosquitto:Sonoff_3/lightSwitch/gpio/12:command:ON:1],>[mosquitto:Sonoff_3/gpio/12:command:OFF:0]"}
+String   Sonoff_3Uptime 	"Sonoff 3 Uptime [%s]"	<light>	(EE_Werk2)	{ mqtt="<[mosquitto:Sonoff_3/Uptime/Minutes:state:default]"}
+String   Sonoff_3Wifi	"Sonoff 3 WiFi Status"	<light>	(EE_Werk2)	{ mqtt="[mosquitto:Sonoff_3/Wifi/]" }
+//
+Switch   Sonoff_4    	"Sonoff Switch 4 [%s]" 	<light>	(EE_Werk2)	{ mqtt=">[mosquitto:Sonoff_4/lightSwitch/gpio/12:command:ON:1],>[mosquitto:Sonoff_4/gpio/12:command:OFF:0]"}
+String   Sonoff_4Uptime 	"Sonoff 4 Uptime [%s]"	<light>	(EE_Werk2)	{ mqtt="<[mosquitto:Sonoff_4/Uptime/Minutes:state:default]"}
+String   Sonoff_4Wifi	"Sonoff 4 WiFi Status"	<light>	(EE_Werk2)	{ mqtt="[mosquitto:Sonoff_4/Wifi/]" }
+//
+Switch   Sonoff_5    	"Sonoff Switch 5 [%s]" 	<light>	(EE_Werk2)	{ mqtt=">[mosquitto:Sonoff_5/lightSwitch/gpio/12:command:ON:1],>[mosquitto:Sonoff_5/gpio/12:command:OFF:0]"}
+String   Sonoff_5Uptime 	"Sonoff 5 Uptime [%s]"	<light>	(EE_Werk2)	{ mqtt="<[mosquitto:Sonoff_5/Uptime/Minutes:state:default]"}
+String   Sonoff_5Wifi	"Sonoff 5 WiFi Status"	<light>	(EE_Werk2)	{ mqtt="[mosquitto:Sonoff_5/Wifi/]" }
+//
+Switch   Sonoff_6    	"Sonoff Switch 6 [%s]" 	<light>	(EE_Werk2)	{ mqtt=">[mosquitto:Sonoff_6/lightSwitch/gpio/12:command:ON:1],>[mosquitto:Sonoff_6/gpio/12:command:OFF:0]"}
+String   Sonoff_6Uptime 	"Sonoff 6 Uptime [%s]"	<light>	(EE_Werk2)	{ mqtt="<[mosquitto:Sonoff_6/Uptime/Minutes:state:default]"}
+String   Sonoff_6Wifi	"Sonoff 6 WiFi Status"	<light>	(EE_Werk2)	{ mqtt="[mosquitto:Sonoff_6/Wifi/]" }
+
+
+//
+//
+//
+// ***************** Test met mqtt ********** Sonoff met TASMOTA fw, volgens ThomDietrich  *************** 
+//Switch 	Sonoff_2 		"Sonoff Switch 2 [%s]" 	<light> (EE_Werl2)      { mqtt=">[mosquitto:cmnd/Sonoff_2/power:command:*:default],<[mosquitto:stat/Sonoff_2/POWER:state:default]" }
+//Switch	Sonoff_2 		"Sonoff #2" 		<poweroutlet> 		{ mqtt=">[mosquitto:cmnd/Sonoff_2/power:command:ON:default], >[mosquitto:cmnd/Sonoff_2/power:command:OFF:default]" }
+//Switch	WiFiButton1 	"Sonoff #2 pushbutton" 				{ mqtt="<[mosquitto:cmnd/sonbutt1/POWER:state:ON]" }
+
+//

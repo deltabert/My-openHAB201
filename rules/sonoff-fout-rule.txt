@@ -1,0 +1,41 @@
+// Switch EE_3_WCD_1 (Sonoff) ON/OFF
+rule "Switch light on MON,WED,FRI"
+when
+	Time cron "0 52 21 * * MON,WED,FRI"
+then
+  sendCommand(EE_3_SW_WCD_1,ON)
+end
+
+rule "Switch light on TUE,THU"
+when
+	Time cron "0 44 21 * * TUE,THU"
+then
+  sendCommand(EE_3_SW_WCD_1,ON)
+end
+rule "Switch light on SAT,SUN"
+when
+	Time cron "0 35 21 * * SAT,SUN"
+then
+  sendCommand(EE_3_SW_WCD_1,ON)
+end
+//
+//
+rule "Switch light off MON,WED,FRI"
+when
+	Time cron "0 15 22 * * MON,WED,FRI"
+then
+  sendCommand(EE_3_SW_WCD_1,OFF)
+end
+
+rule "Switch light on TUE,THU"
+when
+	Time cron "0 32 22 * * TUE,THU"
+then
+  sendCommand(EE_3_SW_WCD_1,OFF)
+end
+rule "Switch light on SAT,SUN"
+when
+	Time cron "0 10 22 * * SAT,SUN"
+then
+  sendCommand(EE_3_SW_WCD_1,OFF)
+end
